@@ -7,11 +7,11 @@
 if (Get-Command -Name 'rustc')
 {
     Push-Location -Path $env:UserProfile
-	New-Item -Name ".rustup" -Value "C:\Rust\.rustup" -ItemType Junction
-	New-Item -Name ".cargo" -Value "C:\Rust\.cargo" -ItemType Junction
+    New-Item -Name ".rustup" -Value "C:\Rust\.rustup" -ItemType Junction
+    New-Item -Name ".cargo" -Value "C:\Rust\.cargo" -ItemType Junction
     $RustcVersion = rustc --version
     Write-Host "$RustcVersion is on the path"
-	Pop-Location
+    Pop-Location
 }
 else
 {
