@@ -10,8 +10,8 @@ source $HELPER_SCRIPTS/document.sh
 
 set -e
 
-export RUSTUP_HOME=/usr/share/.rustup
-export CARGO_HOME=/usr/share/.cargo
+export RUSTUP_HOME=/usr/share/rust/.rustup
+export CARGO_HOME=/usr/share/rust/.cargo
 
 curl https://sh.rustup.rs -sSf | sh -s -- -y
 
@@ -28,8 +28,7 @@ cargo install cbindgen
 echo "Test installation of the Rust toochain"
 
 # Permissions
-chmod -R 777 $RUSTUP_HOME
-chmod -R 777 $CARGO_HOME
+chmod -R 777 $(dirname $RUSTUP_HOME)
 
 for cmd in rustup rustc rustdoc cargo rustfmt cargo-clippy bindgen cbindgen; do
     if ! command -v $cmd --version; then
